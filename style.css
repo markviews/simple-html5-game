@@ -1,4 +1,7 @@
-body {background-color: #31b2e0;}
+body {
+  background-image: url("images/bg.png");
+  background-size:cover
+}
 img {
   position: absolute;
   transform: scaleX(-1);

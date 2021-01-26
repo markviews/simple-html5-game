@@ -67,16 +67,24 @@ let player = {
       //if player is not on foor (y=100 is the ground)
       if (this.y > 100) {
 
-        //TODO check if collides with terrain (make array of terrain images, check them all)
-
-
         this.falling = true;
-        this.y -= 10;
 
-        if (this.y == 100) {
-          player.imgAction = "idle";
-        }
+        //check if player is on a platform
+        Array.from(document.getElementsByClassName("platform")).forEach((platform, i) => {
+          if (this.x + this.img.width - 80 > platform.offsetLeft) {//right of player is to right of platform edge
+            if (this.x < platform.offsetLeft + this.img.width + 30) {//left of player is to left of platform edge
+              if (this.y > parseInt(platform.style.bottom)) {//feet are above bottom of platform
+                if (this.y < parseInt(platform.style.bottom) + platform.height) {//feet are below top of platform
+                  this.falling = false;
+                  return;
+                }
+              }
+            }
+          }
+        });
 
+        if (this.falling) this.y -= 10;
+        if (this.y == 100 || !this.falling) player.imgAction = "idle";
       } else this.falling = false;
     }
 
