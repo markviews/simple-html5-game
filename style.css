@@ -1,0 +1,12 @@
+body {background-color: #31b2e0;}
+img {
+  position: absolute;
+  transform: scaleX(-1);
+}
+div {
+  vertical-align: top;
+  color: white;
+  font-size: 25px;
+  font-family: Comic Sans MS;
+  text-align: left;
+}

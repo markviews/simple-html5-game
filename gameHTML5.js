@@ -7,7 +7,6 @@ window.addEventListener('keydown', function (e) {
 window.addEventListener('keyup', function (e) {
     keys[e.keyCode] = false;
 
-    //if player is not jumping, set to idle
     if (player.jumpFrame == 0)
       player.imgAction = "idle";
 })
@@ -69,10 +68,14 @@ let player = {
       if (this.y > 100) {
 
         //TODO check if collides with terrain (make array of terrain images, check them all)
-        
+
 
         this.falling = true;
         this.y -= 10;
+
+        if (this.y == 100) {
+          player.imgAction = "idle";
+        }
 
       } else this.falling = false;
     }
@@ -117,7 +120,7 @@ let bubble = {
   popWait: 10,//how manny frames to show pop image
   spawn: function() {
     this.x = Math.floor(Math.random() * (document.body.offsetWidth - 80));
-    this.y = Math.floor(Math.random() * 200) + 100;
+    this.y = Math.floor(Math.random() * 400) + 100;
     this.img = document.createElement('img');
     this.img.width = 80;
     this.img.src = "images/bubble.gif";
@@ -140,7 +143,7 @@ let bubble = {
     //check if it collides with player
     if (player.x + player.img.width - 30 > this.x) {//right of player is to right of bubble side (-30 to compensate for transparency in player image)
       if (player.x < this.x + this.img.width - 30) {//left of player is to left of bubble side
-        if (player.y + player.img.height > this.y) {//head is above bottom of bubble
+        if (player.y + player.img.height > this.y + 30) {//head is above bottom of bubble
           if (player.y < this.y + this.img.height) {//feet are below top of bubble
             this.pop();
           }
