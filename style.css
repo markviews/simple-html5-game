@@ -4,7 +4,6 @@ body {
 }
 img {
   position: absolute;
-  transform: scaleX(-1);
 }
 div {
   vertical-align: top;
@@ -12,4 +11,27 @@ div {
   font-size: 25px;
   font-family: Comic Sans MS;
   text-align: left;
+}
+#pause {
+  position:fixed;
+  z-index: 2; /* above everything else */
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background:rgba(0,0,0,.5);
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+h2 {
+  font-size: 80px;
+}
+h3 {
+  font-size: 60px;
 }

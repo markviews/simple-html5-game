@@ -1,22 +1,37 @@
 <html>
-
 <head>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!--Character pics source: https://www.gameart2d.com/cute-girl-free-sprites.html -->
-  <!--Enviroment pics source: https://www.gameart2d.com/free-platformer-game-tileset.html -->
-  <!--Background pic source: https://www.gameart2d.com/winter-platformer-game-tileset.html -->
-
+  <!-- Sources
+  Girl: https://www.gameart2d.com/cute-girl-free-sprites.html
+  Boy: https://www.gameart2d.com/the-boy---free-sprites.html
+  Enviroment: https://www.gameart2d.com/free-platformer-game-tileset.html
+  Background: https://www.gameart2d.com/winter-platformer-game-tileset.html
+  Apple: https://www.deviantart.com/barakaldo/art/Golden-Apple-325565683
+  Turtle shell: https://www.mariomayhem.com/downloads/sprites/mario_kart_wii_sprites.php
+  Heart: https://opengameart.org/content/heart-pixel-art
+  -->
   <div id="score">Score: 0</div>
-
   <img class="platform" src="images/platform.png" width=300 style="left: 400; bottom: 230;">
-  <img id="player" src="images/idle.gif" height=200>
+  <img class="platform" src="images/platform.png" width=300 style="left: 900; bottom: 400;">
+  <img id="player" src="images/idle.gif" width=190>
+  <img id="npc" src="images/NPC_idle.gif" height=200>
 
+  <img id="heart1" src="images/heart.png" height=20 style="position: static">
+  <img id="heart2" src="images/heart.png" height=20 style="position: static">
+  <img id="heart3" src="images/heart.png" height=20 style="position: static">
+  <img id="heart4" src="images/heart.png" height=20 style="position: static">
+
+  <div id="pause" style="display: none;">
+    <div class="center">
+        <h2>Game over</h2>
+        <h3 id="pauseScore">Score: 1</h3>
+    </div>
+  </div>
 
   <script src="gameHTML5.js"></script>
-
 </body>
 
 </html>
