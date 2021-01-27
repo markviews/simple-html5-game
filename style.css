@@ -35,3 +35,12 @@ h2 {
 h3 {
   font-size: 60px;
 }
+.floor {
+  left: 0;
+  bottom: 0;
+  width:100%;
+  height:100px;
+  position:absolute;
+  background-repeat: repeat-x;
+  background-image: url('images/floor.png');
+}

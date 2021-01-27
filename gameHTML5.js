@@ -101,11 +101,13 @@ let player = {
   walk: function(direction) {
     if (direction == "left") {
       player.x -= player.speed;
+      if (player.x < 0) player.x = 0;
       player.looking = "left";
       if (this.jumpFrame == 0)
         player.imgAction = "walk";
     } else {
       player.x += player.speed;
+      if (player.x > document.body.offsetWidth - player.img.width) player.x = document.body.offsetWidth - player.img.width;
       player.looking = "right";
       if (this.jumpFrame == 0)
         player.imgAction = "walk";
