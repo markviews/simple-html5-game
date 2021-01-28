@@ -28,10 +28,32 @@
 
   <div id="pause" style="display: none;">
     <div class="center">
+
+      <div id="gameover" style="display: none;">
         <h2>Game over</h2>
         <h3 id="pauseScore">Score: 1</h3>
+      </div>
+
+      <div id="settingsMenu" style="text-align: center; display: none;">
+        <h2>Settings</h2>
+        <h4>Max bubbles at once:</h4><input id="maxBubbles" type="text"><br>
+        <h4>Player Speed:</h4><input id="player.speed" type="text"><br>
+        <h4>Player Jump Height:</h4><input id="player.jumpHeight" type="text"><br>
+        <h4>Spawn apple every x bubbles:</h4><input id="player.spawnAppleThreshold" type="text"><br>
+        <h4>NPC Speed:</h4><input id="npc.speed" type="text"><br>
+        <h4>NPC View Distance (for follow):</h4><input id="npc.viewDistance" type="text"><br>
+        <h4>NPC Throw Shell Timeout:</h4><input id="npc.shellTimeout" type="text"><br>
+        <h4>NPC Max Shells at once:</h4><input id="npc.maxShells" type="text"><br>
+        <h4>Shell Speed:</h4><input id="shell.speed" type="text"><br>
+        <h4>Shell ticks before despawn:</h4><input id="shell.lifetime" type="text"><br>
+        <br>
+        <button onclick="returnToGame()">Return to game</button>
+      </div>
+
     </div>
   </div>
+
+  <img id="settings" src="images/settings.png" onclick="openSettings()">
 
   <script src="gameHTML5.js"></script>
 </body>

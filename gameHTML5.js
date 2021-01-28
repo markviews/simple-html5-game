@@ -1,5 +1,9 @@
 var keys = []
+var shells = []
+var bubbles = []
+var apples = []
 var pause = false;
+var maxBubbles = 7;
 setInterval(update, 20);
 
 window.addEventListener('keydown', function (e) {
@@ -29,7 +33,11 @@ function update() {
       shell.update();
     });
 
-    if (bubbles.length < 6)
+    apples.forEach((apple, i) => {
+      apple.update();
+    });
+
+    if (bubbles.length < maxBubbles)
       Object.create(bubble).spawn();
 }
 
@@ -132,7 +140,9 @@ let player = {
   changeHealth: function(change) {
     this.health += change;
     if (this.health == 0) {
+      //player died, display game over screen
       document.getElementById("pauseScore").innerHTML = "Score: " + player.score;
+      document.getElementById("gameover").style.display = "block"
       document.getElementById("pause").style.display = "block"
       pause = true;
     } else if (this.health == 5) {
@@ -161,7 +171,7 @@ let npc = {
   looking: "right",
   imgAction: "idle",
   lastImg: "idle",
-  shellTimeout: 400,//setting: ticks to wait between throwing shells
+  shellTimeout: 300,//setting: ticks to wait between throwing shells
   maxShells: 2,//setting: number of shells to spawn at once
   shelltick: 0,
   img: document.getElementById("npc"),
@@ -178,7 +188,7 @@ let npc = {
     }
 
     if (shells.length < this.maxShells) {
-      if (this.shelltick++ == this.shellTimeout) {
+      if (this.shelltick++ >= this.shellTimeout) {
         this.spawnShell();
         this.shelltick = 0;
       }
@@ -208,7 +218,6 @@ let npc = {
   }
 }
 
-var bubbles = []
 let bubble = {
   x: 0,
   y: 0,
@@ -265,7 +274,7 @@ let apple = {
     this.img.width = 80;
     this.img.src = "images/apple.gif";
     document.body.appendChild(this.img);
-    bubbles.push(this);
+    apples.push(this);
   },
   update: function() {
     this.img.style.left = this.x;
@@ -299,12 +308,11 @@ let apple = {
   pop: function() {
     player.changeHealth(1);
     new Audio('eat.mp3').play();
-    bubbles.splice(bubbles.indexOf(this), 1);
+    apples.splice(apples.indexOf(this), 1);
     this.img.remove();
   }
 }
 
-var shells = []
 let shell = {
   x: 0,
   y: 0,
@@ -314,7 +322,7 @@ let shell = {
   speed: 4,//setting
   lifetime: 300,//setting: how manny ticks untill shell despawns
   currentlife: 0,
-  spawn: function(target) {//TODO make NPC throw shells at bubbles to destroy them if player is out of view
+  spawn: function() {
     new Audio('pew.mp3').play();
     this.x = npc.x + (npc.img.width / 2);
     this.y = npc.y + (npc.img.height / 2);
@@ -356,7 +364,6 @@ let shell = {
             this.pop();
   },
   pop: function() {
-    //player.addScore();
     player.changeHealth(-1);
     new Audio('pll.mp3').play();
     this.die();
@@ -365,4 +372,41 @@ let shell = {
     shells.splice(shells.indexOf(this), 1);
     this.img.remove();
   }
+}
+
+function openSettings() {
+  console.log("openSettings");
+  document.getElementById("settingsMenu").style.display = "block"
+  document.getElementById("gameover").style.display = "none"
+  document.getElementById("pause").style.display = "block"
+
+  document.getElementById("player.speed").value = player.speed;
+  document.getElementById("player.jumpHeight").value = player.jumpHeight;
+  document.getElementById("player.spawnAppleThreshold").value = player.spawnAppleThreshold;
+  document.getElementById("npc.speed").value = npc.speed;
+  document.getElementById("npc.viewDistance").value = npc.viewDistance;
+  document.getElementById("npc.shellTimeout").value = npc.shellTimeout;
+  document.getElementById("npc.maxShells").value = npc.maxShells;
+  document.getElementById("shell.speed").value = shell.speed;
+  document.getElementById("shell.lifetime").value = shell.lifetime;
+  document.getElementById("maxBubbles").value = maxBubbles;
+  pause = true;
+}
+
+function returnToGame() {
+  console.log("returnToGame");
+  document.getElementById("settingsMenu").style.display = "none"
+  document.getElementById("pause").style.display = "none"
+
+  player.speed = parseFloat(document.getElementById("player.speed").value);
+  npc.speed = parseFloat(document.getElementById("npc.speed").value);
+  player.jumpHeight = parseFloat(document.getElementById("player.jumpHeight").value);
+  player.spawnAppleThreshold = parseFloat(document.getElementById("player.spawnAppleThreshold").value);
+  npc.viewDistance = parseFloat(document.getElementById("npc.viewDistance").value);
+  npc.shellTimeout = parseFloat(document.getElementById("npc.shellTimeout").value);
+  npc.maxShells = parseFloat(document.getElementById("npc.maxShells").value);
+  shell.speed = parseFloat(document.getElementById("shell.speed").value);
+  shell.lifetime = parseFloat(document.getElementById("shell.lifetime").value);
+  maxBubbles = parseFloat(document.getElementById("maxBubbles").value);
+  pause = false;
 }
