@@ -390,6 +390,7 @@ function openSettings() {
   document.getElementById("shell.speed").value = shell.speed;
   document.getElementById("shell.lifetime").value = shell.lifetime;
   document.getElementById("maxBubbles").value = maxBubbles;
+  document.getElementById("player.health").value = player.health;
   pause = true;
 }
 
@@ -408,5 +409,6 @@ function returnToGame() {
   shell.speed = parseFloat(document.getElementById("shell.speed").value);
   shell.lifetime = parseFloat(document.getElementById("shell.lifetime").value);
   maxBubbles = parseFloat(document.getElementById("maxBubbles").value);
+  player.health = parseFloat(document.getElementById("player.health").value);
   pause = false;
 }

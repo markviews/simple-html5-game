@@ -1,6 +1,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="style.css">
+  <title>Cool Game</title>
 </head>
 
 <body>
@@ -12,6 +13,8 @@
   Apple: https://www.deviantart.com/barakaldo/art/Golden-Apple-325565683
   Turtle shell: https://www.mariomayhem.com/downloads/sprites/mario_kart_wii_sprites.php
   Heart: https://opengameart.org/content/heart-pixel-art
+  Settings icon: https://en.m.wikipedia.org/wiki/File:Windows_Settings_app_icon.png
+  I made the bubbles and sounds :)
   -->
   <div id="score">Score: 0</div>
   <img class="platform" src="images/platform.png" width=300 style="left: 400; bottom: 230;">
@@ -39,6 +42,7 @@
         <h4>-- Player --</h4><br>
         <h4>Player Speed:</h4><input id="player.speed" type="text"><br>
         <h4>Player Jump Height:</h4><input id="player.jumpHeight" type="text"><br>
+        <h4>Player Health:</h4><input id="player.health" type="text"><br>
         <br>
         <h4>-- NPC --</h4><br>
         <h4>NPC Speed:</h4><input id="npc.speed" type="text"><br>
@@ -60,7 +64,7 @@
 
   <img id="settings" src="images/settings.png" onclick="openSettings()">
 
-  <script src="gameHTML5.js"></script>
+  <script src="game.js"></script>
 </body>
 
 </html>
