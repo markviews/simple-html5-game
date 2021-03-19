@@ -258,7 +258,7 @@ let bubble = {
     this.img.src = "images/pop.png";
     this.pop = true;
     player.addScore();
-    new Audio('pop.mp3').play();
+    new Audio('sounds/pop.mp3').play();
   }
 }
 
@@ -307,7 +307,7 @@ let apple = {
   },
   pop: function() {
     player.changeHealth(1);
-    new Audio('eat.mp3').play();
+    new Audio('sounds/eat.mp3').play();
     apples.splice(apples.indexOf(this), 1);
     this.img.remove();
   }
@@ -323,7 +323,7 @@ let shell = {
   lifetime: 300,//setting: how manny ticks untill shell despawns
   currentlife: 0,
   spawn: function() {
-    new Audio('pew.mp3').play();
+    new Audio('sounds/pew.mp3').play();
     this.x = npc.x + (npc.img.width / 2);
     this.y = npc.y + (npc.img.height / 2);
     this.img = document.createElement('img');
@@ -365,7 +365,7 @@ let shell = {
   },
   pop: function() {
     player.changeHealth(-1);
-    new Audio('pll.mp3').play();
+    new Audio('sounds/pll.mp3').play();
     this.die();
   },
   die: function() {
