@@ -6,7 +6,7 @@ Collect bubbles and dodge shells thrown at you by the guy in the blue shirt.
 ![](https://i.ibb.co/C6JjX73/2021-03-18-22-38-53.png)
 
 ### Notes
- * Controls: WSAD
+ * Controls: WSAD + Space
  * Keyboard required, dosen't work on mobile
  
 ### Art Credits
