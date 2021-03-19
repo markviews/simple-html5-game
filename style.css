@@ -6,11 +6,9 @@ img {
   position: absolute;
 }
 div {
-  vertical-align: top;
   color: white;
   font-size: 25px;
   font-family: Comic Sans MS;
-  text-align: left;
 }
 #pause {
   position:fixed;
@@ -31,6 +29,7 @@ div {
 }
 h2 {
   font-size: 80px;
+  margin: 1px;
 }
 h3 {
   font-size: 60px;
