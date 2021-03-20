@@ -7,7 +7,7 @@ Collect bubbles and dodge shells thrown at you by the guy in the blue shirt.
 
 ### Notes
  * Controls: WSAD + Space
- * Keyboard required, dosen't work on mobile
+ * Keyboard required
  
 ### Art Credits
   * Girl: https://www.gameart2d.com/cute-girl-free-sprites.html
