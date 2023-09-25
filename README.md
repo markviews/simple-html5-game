@@ -1,6 +1,6 @@
 # simple-html5-game
 Collect bubbles and dodge shells thrown at you by the guy in the blue shirt.
-<br>Play the game [here](http://pop.markstuff.net/)
+<br>Play the game [here](https://markviews.github.io/simple-html5-game/)
 <br>
 <br>
 ![](https://i.ibb.co/C6JjX73/2021-03-18-22-38-53.png)
